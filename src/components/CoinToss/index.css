@@ -1,0 +1,15 @@
+.container {
+  background-color: #f9d423;
+  padding: 80px;
+}
+
+.img {
+  height: 180px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding-left: 10px;
+  padding-top: 20px;
+  border-radius: 10px;
+}
