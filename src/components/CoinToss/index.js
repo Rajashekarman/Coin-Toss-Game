@@ -3,7 +3,7 @@ import {Component} from 'react'
 import './index.css'
 
 class CoinToss extends Component {
-  state = {count: 0, headCount: 0}
+  state = {count: 0, headCount: 0, tailsCount: 0}
 
   onClick = () => {
     const randomNum = Math.floor(Math.random() * 2)
@@ -11,9 +11,12 @@ class CoinToss extends Component {
     this.setState({
       count: randomNum - 1,
     })
-    if count === 1{
-this.setState(prevSt => {headCount: prevSt.headCount +1})  
   }
+  if randomNum === 0{
+      this.setState(prevSt => ({headCount: prevSt.headCount + 1}))
+  }
+  else{
+      this.setState(prevSt => ({tailsCount: prevSt.tailsCount + 1}))
   }
 
   render() {
@@ -22,6 +25,7 @@ this.setState(prevSt => {headCount: prevSt.headCount +1})
       count === 0
         ? 'https://assets.ccbp.in/frontend/react-js/heads-img.png'
         : 'https://assets.ccbp.in/frontend/react-js/tails-img.png'
+
     return (
       <div className="container">
         <div className="card">
