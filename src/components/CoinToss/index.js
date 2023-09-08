@@ -3,33 +3,34 @@ import {Component} from 'react'
 import './index.css'
 
 class CoinToss extends Component {
-  state = {count: 0}
-
-  randomNum = Math.ceil(Math.random() * 2)
-
-  image =
-    this.randomNum === 1
-      ? 'https://assets.ccbp.in/frontend/react-js/heads-img.png'
-      : 'https://assets.ccbp.in/frontend/react-js/tails-img.png'
+  state = {count: 0, headCount: 0}
 
   onClick = () => {
-    // const {count} = this.state
-    this.setState(prevSt => ({
-      count: prevSt.count + this.randomNum,
-    }))
+    const randomNum = Math.floor(Math.random() * 2)
+
+    this.setState({
+      count: randomNum - 1,
+    })
+    if count === 1{
+this.setState(prevSt => {headCount: prevSt.headCount +1})  
+  }
   }
 
   render() {
     const {count} = this.state
+    const image =
+      count === 0
+        ? 'https://assets.ccbp.in/frontend/react-js/heads-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/tails-img.png'
     return (
       <div className="container">
         <div className="card">
           <h1>Coin Toss Game</h1>
           <p>Heads (or) Tails</p>
-          <img src={this.image} alt="toss result" className="img" />
+          <img src={image} alt="toss result" className="img" />
           <button onClick={this.onClick}>Toss Coin</button>
-          <p>Total:{count}</p>
-          <p>Heads: {count}</p>
+          <p>Total:{headCount}</p>
+          <p>Heads: {headCount}</p>
           <p>Tails: {count}</p>
         </div>
       </div>
